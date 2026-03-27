@@ -1,0 +1,21 @@
+{
+  "name": "compliance-hq",
+  "compatibility_date": "2025-04-01",
+  "pages_build_output_dir": "dist",
+  "main": "worker/index.ts",
+
+  // KV namespaces for compliance data
+  "kv_namespaces": [
+    // { "binding": "COMPLIANCE_KV", "id": "<KV_ID>" }
+  ],
+
+  // D1 database for structured compliance data
+  "d1_databases": [
+    // { "binding": "DB", "database_name": "compliance-hq", "database_id": "<D1_ID>" }
+  ],
+
+  // Environment variables
+  "vars": {
+    "ENVIRONMENT": "production"
+  }
+}
