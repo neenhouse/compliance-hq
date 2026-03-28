@@ -10,9 +10,7 @@ describe('LandingPage', () => {
         <LandingPage />
       </MemoryRouter>,
     )
-    expect(
-      screen.getByText('Automated Compliance for Software Teams'),
-    ).toBeInTheDocument()
+    expect(screen.getByText('Compliance on autopilot')).toBeInTheDocument()
   })
 
   it('renders all four framework cards', () => {
@@ -21,10 +19,10 @@ describe('LandingPage', () => {
         <LandingPage />
       </MemoryRouter>,
     )
-    expect(screen.getByText('SOC2')).toBeInTheDocument()
+    expect(screen.getByText('SOC 2')).toBeInTheDocument()
     expect(screen.getByText('HIPAA')).toBeInTheDocument()
     expect(screen.getByText('GDPR')).toBeInTheDocument()
-    expect(screen.getByText('ISO27001')).toBeInTheDocument()
+    expect(screen.getByText('ISO 27001')).toBeInTheDocument()
   })
 
   it('renders all eight feature cards', () => {
@@ -52,5 +50,17 @@ describe('LandingPage', () => {
     expect(screen.getByText('Starter')).toBeInTheDocument()
     expect(screen.getByText('Pro')).toBeInTheDocument()
     expect(screen.getByText('Enterprise')).toBeInTheDocument()
+    expect(screen.getByText('$499/mo')).toBeInTheDocument()
+    expect(screen.getByText('$1,499/mo')).toBeInTheDocument()
+  })
+
+  it('renders the CTA buttons', () => {
+    render(
+      <MemoryRouter>
+        <LandingPage />
+      </MemoryRouter>,
+    )
+    expect(screen.getByText('Get Started')).toBeInTheDocument()
+    expect(screen.getByText('View Demo')).toBeInTheDocument()
   })
 })

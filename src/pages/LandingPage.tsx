@@ -1,48 +1,59 @@
+import { useNavigate } from 'react-router-dom'
 import './LandingPage.css'
 
 const frameworks = [
-  { name: 'SOC2', description: 'Service Organization Control 2' },
-  { name: 'HIPAA', description: 'Health Insurance Portability and Accountability Act' },
-  { name: 'GDPR', description: 'General Data Protection Regulation' },
-  { name: 'ISO27001', description: 'Information Security Management System' },
+  { name: 'SOC 2', controls: 30 },
+  { name: 'HIPAA', controls: 54 },
+  { name: 'GDPR', controls: 42 },
+  { name: 'ISO 27001', controls: 93 },
 ]
 
 const features = [
   {
     title: 'Framework Selector',
-    description: 'Interactive wizard to identify which compliance frameworks apply to your business.',
+    description:
+      'Interactive wizard to identify which compliance frameworks apply to your business.',
   },
   {
     title: 'Control Library',
-    description: 'Unified control library with cross-framework mapping across SOC2, HIPAA, GDPR, and ISO27001.',
+    description:
+      'Unified control library with cross-framework mapping across SOC2, HIPAA, GDPR, and ISO27001.',
   },
   {
     title: 'Infrastructure Mapping',
-    description: 'Connect your cloud infrastructure and automatically map controls to existing systems.',
+    description:
+      'Connect your cloud infrastructure and automatically map controls to existing systems.',
   },
   {
     title: 'Evidence Collection',
-    description: 'Automated evidence gathering from connected integrations with review workflows.',
+    description:
+      'Automated evidence gathering from connected integrations with review workflows.',
   },
   {
     title: 'Gap Analysis',
-    description: 'Identify unmet controls with risk-prioritized remediation steps and progress tracking.',
+    description:
+      'Identify unmet controls with risk-prioritized remediation steps and progress tracking.',
   },
   {
     title: 'Policy Generator',
-    description: 'AI-powered policy document generation tailored to your organization and frameworks.',
+    description:
+      'AI-powered policy document generation tailored to your organization and frameworks.',
   },
   {
     title: 'Continuous Monitoring',
-    description: 'Real-time compliance posture monitoring with drift detection and automated alerts.',
+    description:
+      'Real-time compliance posture monitoring with drift detection and automated alerts.',
   },
   {
     title: 'Vendor Risk Assessment',
-    description: 'Assess and monitor third-party vendor compliance risk across your supply chain.',
+    description:
+      'Assess and monitor third-party vendor compliance risk across your supply chain.',
   },
 ]
 
 export default function LandingPage() {
+  const navigate = useNavigate()
+
   return (
     <div className="landing">
       <header className="landing-header">
@@ -52,19 +63,36 @@ export default function LandingPage() {
             <a href="#features">Features</a>
             <a href="#frameworks">Frameworks</a>
             <a href="#pricing">Pricing</a>
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={() => navigate('/app')}
+            >
+              Open Dashboard
+            </button>
           </div>
         </nav>
       </header>
 
       <section className="hero">
-        <h1>Automated Compliance for Software Teams</h1>
+        <div className="hero-badge">Trusted by 500+ engineering teams</div>
+        <h1>Compliance on autopilot</h1>
         <p className="hero-sub">
-          SOC2, HIPAA, GDPR, and ISO27001 in one platform. Stop wasting engineering
-          time on spreadsheets and start shipping with confidence.
+          SOC 2, HIPAA, GDPR, and ISO 27001 in one platform. Stop wasting
+          engineering time on spreadsheets and start shipping with confidence.
         </p>
         <div className="hero-cta">
-          <button className="btn btn-primary">Get Started</button>
-          <button className="btn btn-secondary">View Demo</button>
+          <button
+            className="btn btn-primary btn-lg"
+            onClick={() => navigate('/app/frameworks')}
+          >
+            Get Started
+          </button>
+          <button
+            className="btn btn-secondary btn-lg"
+            onClick={() => navigate('/app')}
+          >
+            View Demo
+          </button>
         </div>
       </section>
 
@@ -74,7 +102,7 @@ export default function LandingPage() {
           {frameworks.map((fw) => (
             <div key={fw.name} className="framework-card">
               <h3>{fw.name}</h3>
-              <p>{fw.description}</p>
+              <p className="framework-controls">{fw.controls} controls</p>
             </div>
           ))}
         </div>

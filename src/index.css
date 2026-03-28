@@ -1,24 +1,36 @@
 :root {
-  /* Colors */
-  --color-bg: #0f1117;
-  --color-bg-surface: #1a1c25;
-  --color-bg-elevated: #242631;
-  --color-border: #2e303d;
-  --color-text: #94969f;
-  --color-text-strong: #f0f1f3;
+  /* Core palette */
+  --color-bg: #0a0a0f;
+  --color-bg-surface: #12121a;
+  --color-bg-elevated: #1a1a24;
+  --color-border: #262630;
+  --color-border-hover: #3a3a48;
+
+  /* Text */
+  --color-text: #8888a0;
+  --color-text-strong: #eeeef2;
+  --color-text-muted: #55556a;
+
+  /* Accent — blue */
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
-  --color-primary-bg: rgba(59, 130, 246, 0.12);
+  --color-primary-active: #1d4ed8;
+  --color-primary-bg: rgba(59, 130, 246, 0.10);
+  --color-primary-border: rgba(59, 130, 246, 0.25);
+
+  /* Semantic */
   --color-success: #22c55e;
-  --color-success-bg: rgba(34, 197, 94, 0.12);
+  --color-success-bg: rgba(34, 197, 94, 0.10);
   --color-warning: #eab308;
-  --color-warning-bg: rgba(234, 179, 8, 0.12);
+  --color-warning-bg: rgba(234, 179, 8, 0.10);
   --color-danger: #ef4444;
-  --color-danger-bg: rgba(239, 68, 68, 0.12);
+  --color-danger-bg: rgba(239, 68, 68, 0.10);
+  --color-orange: #f97316;
+  --color-orange-bg: rgba(249, 115, 22, 0.10);
 
   /* Typography */
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
 
   /* Spacing */
   --space-xs: 4px;
@@ -33,11 +45,17 @@
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
+  --radius-xl: 16px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+
+  /* Transitions */
+  --transition-fast: 0.12s ease;
+  --transition-base: 0.2s ease;
 
   font-family: var(--font-sans);
   font-size: 16px;
@@ -46,8 +64,10 @@
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
 }
 
+/* Reset */
 *,
 *::before,
 *::after {
@@ -56,24 +76,33 @@
   padding: 0;
 }
 
-body {
-  min-height: 100vh;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-strong);
   font-weight: 600;
   line-height: 1.25;
 }
 
-h1 { font-size: 3rem; letter-spacing: -0.02em; }
-h2 { font-size: 2rem; letter-spacing: -0.01em; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.125rem; }
+h1 { font-size: 2.5rem; letter-spacing: -0.025em; }
+h2 { font-size: 1.75rem; letter-spacing: -0.015em; }
+h3 { font-size: 1.375rem; }
+h4 { font-size: 1.0625rem; }
+
+p { line-height: 1.65; }
 
 a {
   color: var(--color-primary);
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
@@ -82,8 +111,53 @@ a:hover {
 
 code {
   font-family: var(--font-mono);
-  font-size: 0.875em;
-  background: var(--color-bg-surface);
+  font-size: 0.8125em;
+  background: var(--color-bg-elevated);
   padding: 2px 6px;
   border-radius: var(--radius-sm);
+  color: var(--color-primary);
+}
+
+strong {
+  color: var(--color-text-strong);
+  font-weight: 600;
+}
+
+/* Selection */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: var(--color-text-strong);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive breakpoints (reference only) */
+/* sm: 640px, md: 768px, lg: 1024px, xl: 1280px */
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.375rem; }
 }

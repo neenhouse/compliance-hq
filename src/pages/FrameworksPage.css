@@ -1,0 +1,105 @@
+.fw-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.fw-card {
+  background: var(--color-bg-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  position: relative;
+  color: inherit;
+  font-family: inherit;
+}
+
+.fw-card:hover {
+  border-color: var(--color-primary);
+}
+
+.fw-card--selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.fw-card-check {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+}
+
+.fw-card-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.fw-card-full {
+  font-size: 0.8125rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.fw-card-count {
+  display: inline-block;
+  padding: 2px 10px;
+  background: var(--color-bg-elevated);
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-strong);
+  margin-bottom: var(--space-md);
+}
+
+.fw-card--selected .fw-card-count {
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--color-primary);
+}
+
+.fw-card-desc {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.fw-summary {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.fw-summary-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.fw-summary-label {
+  font-size: 0.75rem;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fw-summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-strong);
+}
+
+.fw-summary-frameworks {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-left: auto;
+}
