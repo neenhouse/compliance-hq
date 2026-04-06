@@ -53,10 +53,31 @@
   margin: 0 auto;
   padding: var(--space-3xl) var(--space-lg);
   text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 4px 16px;
   border-radius: 9999px;
   background: var(--color-primary-bg);
@@ -65,6 +86,22 @@
   font-weight: 500;
   margin-bottom: var(--space-lg);
   border: 1px solid var(--color-primary-border);
+  letter-spacing: 0.01em;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  animation: pulse-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
 }
 
 .hero h1 {
@@ -151,11 +188,15 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
-  transition: border-color var(--transition-base);
+  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  border-top: 2px solid var(--color-border);
 }
 
 .feature-card:hover {
-  border-color: var(--color-border-hover);
+  border-color: var(--color-primary-border);
+  border-top-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
 }
 
 .feature-card h4 {
@@ -166,6 +207,7 @@
 .feature-card p {
   font-size: 0.875rem;
   color: var(--color-text);
+  line-height: 1.6;
 }
 
 /* Pricing */
@@ -224,13 +266,35 @@
 
 .pricing-card li {
   padding: var(--space-sm) 0;
+  padding-left: 20px;
   border-bottom: 1px solid var(--color-border);
   font-size: 0.875rem;
   color: var(--color-text);
+  position: relative;
+}
+
+.pricing-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.75;
 }
 
 .pricing-card li:last-child {
   border-bottom: none;
+}
+
+.pricing-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.pricing-card--featured:hover {
+  border-color: var(--color-primary);
 }
 
 /* Footer */

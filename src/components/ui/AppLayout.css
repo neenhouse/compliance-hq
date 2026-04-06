@@ -40,6 +40,7 @@
 .sidebar-brand {
   padding: var(--space-lg);
   border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-bg-surface) 0%, rgba(59, 130, 246, 0.04) 100%);
 }
 
 .sidebar-logo {
@@ -49,6 +50,7 @@
   font-size: 1.0625rem;
   font-weight: 700;
   color: var(--color-text-strong) !important;
+  letter-spacing: -0.01em;
 }
 
 .sidebar-nav {
@@ -68,16 +70,21 @@
   font-size: 0.875rem;
   font-weight: 500;
   transition: all var(--transition-fast);
+  position: relative;
+  border-left: 2px solid transparent;
 }
 
 .sidebar-link:hover {
   color: var(--color-text-strong);
   background: var(--color-bg-elevated);
+  border-left-color: var(--color-border-hover);
 }
 
 .sidebar-link--active {
   color: var(--color-primary) !important;
   background: var(--color-primary-bg);
+  border-left-color: var(--color-primary) !important;
+  font-weight: 600;
 }
 
 .sidebar-footer {
@@ -120,7 +127,21 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  border-top: 2px solid var(--color-border);
 }
+
+.stat-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-hover);
+}
+
+/* Tint the top accent border by value type */
+.stat-card:has(.stat-value--success) { border-top-color: var(--color-success); }
+.stat-card:has(.stat-value--danger)  { border-top-color: var(--color-danger); }
+.stat-card:has(.stat-value--warning) { border-top-color: var(--color-warning); }
+.stat-card:has(.stat-value--primary) { border-top-color: var(--color-primary); }
 
 .stat-label {
   font-size: 0.75rem;
@@ -156,10 +177,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: linear-gradient(to right, var(--color-bg-elevated), transparent);
 }
 
 .card-header h2 {
   font-size: 1.0625rem;
+  letter-spacing: -0.01em;
 }
 
 .card-body {
@@ -178,22 +201,29 @@
   padding: var(--space-sm) var(--space-md);
   border-bottom: 1px solid var(--color-border);
   font-size: 0.875rem;
+  transition: background var(--transition-fast);
 }
 
 .data-table th {
-  color: var(--color-text);
+  color: var(--color-text-strong);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.6875rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
+  background: var(--color-bg-elevated);
+}
+
+.data-table thead tr {
+  border-bottom: 1px solid var(--color-border-hover);
 }
 
 .data-table tr:last-child td {
   border-bottom: none;
 }
 
-.data-table tr:hover td {
+.data-table tbody tr:hover td {
   background: var(--color-bg-elevated);
+  cursor: default;
 }
 
 /* Badges */
@@ -249,6 +279,12 @@
   box-shadow: var(--shadow-glow);
 }
 
+.btn-primary:active {
+  background: var(--color-primary-active);
+  box-shadow: none;
+  transform: translateY(1px);
+}
+
 .btn-secondary {
   background: transparent;
   color: var(--color-text-strong);
@@ -258,6 +294,16 @@
 .btn-secondary:hover {
   border-color: var(--color-border-hover);
   background: var(--color-bg-elevated);
+}
+
+.btn-secondary:active {
+  background: var(--color-bg-surface);
+  transform: translateY(1px);
+}
+
+.btn-danger:active {
+  background: #b91c1c;
+  transform: translateY(1px);
 }
 
 .btn-sm {
@@ -289,6 +335,7 @@
   font-size: 0.875rem;
   width: 280px;
   font-family: var(--font-sans);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .search-input::placeholder {
@@ -298,6 +345,7 @@
 .search-input:focus {
   outline: none;
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
 }
 
 /* Filter pills */
@@ -327,10 +375,15 @@
   color: var(--color-text-strong);
 }
 
+.filter-pill:active {
+  transform: translateY(1px);
+}
+
 .filter-pill--active {
   background: var(--color-primary-bg);
   border-color: var(--color-primary-border);
   color: var(--color-primary);
+  font-weight: 600;
 }
 
 /* Progress bar */
@@ -400,11 +453,18 @@
   min-height: 80px;
 }
 
+.form-input,
+.form-select,
+.form-textarea {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
 }
 
 /* Empty state */
