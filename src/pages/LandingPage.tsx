@@ -75,25 +75,33 @@ export default function LandingPage() {
       </header>
 
       <section id="main-content" className="hero">
-        <div className="hero-badge">Trusted by 500+ engineering teams</div>
-        <h1>Compliance on autopilot</h1>
-        <p className="hero-sub">
-          SOC 2, HIPAA, GDPR, and ISO 27001 in one platform. Stop wasting
-          engineering time on spreadsheets and start shipping with confidence.
-        </p>
-        <div className="hero-cta">
-          <button
-            className="btn btn-primary btn-lg"
-            onClick={() => navigate('/app/frameworks')}
-          >
-            Get Started
-          </button>
-          <button
-            className="btn btn-secondary btn-lg"
-            onClick={() => navigate('/app')}
-          >
-            View Demo
-          </button>
+        <div className="hero-content">
+          <div className="hero-badge">Trusted by 500+ engineering teams</div>
+          <h1>Compliance on autopilot</h1>
+          <p className="hero-sub">
+            SOC 2, HIPAA, GDPR, and ISO 27001 in one platform. Stop wasting
+            engineering time on spreadsheets and start shipping with confidence.
+          </p>
+          <div className="hero-cta">
+            <button
+              className="btn btn-primary btn-lg"
+              onClick={() => navigate('/app/frameworks')}
+            >
+              Get Started
+            </button>
+            <button
+              className="btn btn-secondary btn-lg"
+              onClick={() => navigate('/app')}
+            >
+              View Demo
+            </button>
+          </div>
+        </div>
+        <div className="hero-visual" aria-hidden="true">
+          <div className="hero-visual-frame">
+            <img src="/hero-og.webp" alt="" fetchPriority="high" />
+            <div className="hero-visual-accent" />
+          </div>
         </div>
       </section>
 
