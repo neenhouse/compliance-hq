@@ -18,6 +18,7 @@ export function AppLayout() {
 
   return (
     <div className="app-layout">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <button
         className="mobile-menu-btn"
         onClick={() => setMobileOpen(!mobileOpen)}
@@ -68,7 +69,7 @@ export function AppLayout() {
           </div>
         </div>
       </aside>
-      <main className="app-main">
+      <main id="main-content" className="app-main">
         <Outlet />
       </main>
     </div>

@@ -56,6 +56,7 @@ export default function LandingPage() {
 
   return (
     <div className="landing">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <header className="landing-header">
         <nav className="landing-nav">
           <span className="landing-logo">ComplianceHQ</span>
@@ -73,7 +74,7 @@ export default function LandingPage() {
         </nav>
       </header>
 
-      <section className="hero">
+      <section id="main-content" className="hero">
         <div className="hero-badge">Trusted by 500+ engineering teams</div>
         <h1>Compliance on autopilot</h1>
         <p className="hero-sub">

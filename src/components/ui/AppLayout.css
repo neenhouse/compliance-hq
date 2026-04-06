@@ -1,6 +1,6 @@
 .app-layout {
   display: flex;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Mobile menu button */
@@ -96,7 +96,7 @@
   flex: 1;
   margin-left: 230px;
   padding: var(--space-xl);
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Shared page styles */
