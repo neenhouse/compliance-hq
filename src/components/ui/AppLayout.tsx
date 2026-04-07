@@ -65,7 +65,7 @@ export function AppLayout() {
         </nav>
         <div className="sidebar-footer">
           <div style={{ fontSize: '0.6875rem', color: 'var(--color-text-muted)' }}>
-            ComplianceHQ v1.0
+            ComplianceHQ
           </div>
         </div>
       </aside>
